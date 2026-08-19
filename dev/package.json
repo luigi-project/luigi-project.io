@@ -18,7 +18,10 @@
     "watch:css": "sass --watch --no-source-map src/assets/scss/app.scss ../public/assets/css/app.css",
     "watch:js": "esbuild src/assets/js/app.js --bundle --watch --outfile=../public/assets/js/app.js",
     "watch:11ty": "eleventy --serve",
-    "start": "npm run prebuild && npm run build:css && npm run build:js && concurrently \"npm:watch:*\""
+    "start": "npm run prebuild && npm run build:css && npm run build:js && concurrently \"npm:watch:*\"",
+    "test": "node --test test/generate-feeds.test.js",
+    "test:smoke": "node --test --test-timeout=120000 test/build.smoke.test.js",
+    "test:all": "node --test --test-timeout=120000 \"test/*.test.js\""
   },
   "devDependencies": {
     "@11ty/eleventy": "3.1.6",

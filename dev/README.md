@@ -14,6 +14,19 @@ npm start              # local dev server with watch on css/js/templates
 
 The `npm start` server is on `http://localhost:8080` by default (Eleventy's default). The build outputs to `../public/` (i.e. `website/landingpage/public/`); that's the directory Netlify deploys.
 
+## Tests
+
+Tests use the built-in Node test runner (`node --test`) — no extra dependencies.
+
+```bash
+npm test               # fast unit tests (feed/slug helpers)
+npm run test:smoke     # runs a full build and asserts key output files exist
+npm run test:all       # both of the above
+```
+
+- `test/generate-feeds.test.js` — unit tests for the markdown/slug helpers in `scripts/generate-feeds.js` (heading IDs, slug de-duplication, excerpt-marker preservation).
+- `test/build.smoke.test.js` — a smoke test that runs `npm run build` and checks the pages, CSS/JS bundles, and blog feeds are produced. This is the "does it still compile/deploy" guard.
+
 ## Adding a blog post
 
 Blog posts live at the **repo root in `/blog/`**, not in this directory. To add one:

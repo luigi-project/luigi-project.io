@@ -22,7 +22,7 @@ const SITE_URL = 'https://luigi-project.io';
 //  - GitHub-style heading IDs (e.g. <h4 id="category-selection-indicator">)
 const renderer = new marked.Renderer();
 const slugger = new Map();
-function makeSlug(text) {
+export function makeSlug(text) {
   // Match marked v4 / GitHub-flavored-markdown slugify rules:
   //   lowercase, drop HTML-ish delimiters + entities, replace non-word chars with '-',
   //   collapse, strip leading/trailing '-'
@@ -44,7 +44,7 @@ renderer.heading = function ({ tokens, depth }) {
   return `<h${depth} id="${id}">${text}</h${depth}>\n`;
 };
 
-function renderMarkdown(body) {
+export function renderMarkdown(body) {
   slugger.clear(); // reset per-document
   // Match the legacy feed's whitespace around the <!-- Excerpt --> marker.
   // marked v4 left a blank line between the comment and the following heading;

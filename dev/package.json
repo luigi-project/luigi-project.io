@@ -27,7 +27,7 @@
     "@11ty/eleventy": "3.1.6",
     "@11ty/eleventy-plugin-handlebars": "1.0.0",
     "autoprefixer": "10.4.20",
-    "concurrently": "10.0.4",
+    "concurrently": "10.0.6",
     "esbuild": "0.28.1",
     "feed": "5.2.0",
     "gray-matter": "4.0.3",
